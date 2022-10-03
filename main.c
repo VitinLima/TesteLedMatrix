@@ -73,13 +73,15 @@ void main(void)
     LATBbits.LATB1 = 1;
     IO_RA3_SetLow();
     IO_RA7_SetLow();
+    SSP1CON1bits.SSPEN = 1;
 
     while (1)
     {
         __delay_ms(1000);
-        txMAX7219(0x0F,0x01); // Display-Test = 1
+//        txMAX7219(0x0F,0x01); // Display-Test = 1
+        SPI1_ExchangeByte(0x0F)
         __delay_ms(1000);
-        txMAX7219(0x0F,0x00); // Display-Test = 0
+//        txMAX7219(0x0F,0x00); // Display-Test = 0
         if(EUSART_is_tx_ready()){
             EUSART_Write(0x00);
         }
