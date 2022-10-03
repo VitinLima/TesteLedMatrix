@@ -54,6 +54,7 @@
 #include <conio.h>
 #include "spi1.h"
 #include "memory.h"
+#include "eusart.h"
 
 
 

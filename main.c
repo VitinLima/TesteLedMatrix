@@ -72,13 +72,16 @@ void main(void)
     TRISBbits.TRISB1 = 0;
     IO_RA3_SetLow();
     IO_RA7_SetLow();
-    
-    txMAX7219(0x0F,0x01); // Display-Test = 1
-    __delay_ms(1000);
-    txMAX7219(0x0F,0x00); // Display-Test = 0
 
     while (1)
     {
+        __delay_ms(1000);
+        txMAX7219(0x0F,0x01); // Display-Test = 1
+        __delay_ms(1000);
+        txMAX7219(0x0F,0x00); // Display-Test = 0
+        if(EUSART_is_tx_ready()){
+            EUSART_Write(0x00);
+        }
         // Add your application code
     }
 }

@@ -4338,9 +4338,9 @@ extern __bank0 __bit __timeout;
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 121 "./mcc_generated_files/pin_manager.h"
+# 135 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 133 "./mcc_generated_files/pin_manager.h"
+# 147 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
@@ -4541,6 +4541,34 @@ void OSCILLATOR_Initialize(void);
 void WDT_Initialize(void);
 # 46 "main.c" 2
 
+# 1 "./ledMatrix.h" 1
+# 13 "./ledMatrix.h"
+uint8_t matrix[8];
+
+
+
+
+
+
+void txMAX7219(uint8_t addr0, uint8_t dat0);
+
+
+
+
+void initMAX7219();
+
+
+
+
+
+
+void setMatrix(uint8_t pos, uint8_t val);
+
+
+
+void sendMatrix();
+# 47 "main.c" 2
+
 
 
 
@@ -4549,8 +4577,14 @@ void main(void)
 {
 
     SYSTEM_Initialize();
-# 71 "main.c"
+# 72 "main.c"
     TRISBbits.TRISB1 = 0;
+    do { LATAbits.LATA3 = 0; } while(0);
+    do { LATAbits.LATA7 = 0; } while(0);
+
+    txMAX7219(0x0F,0x01);
+    _delay((unsigned long)((1000)*(8000000/4000.0)));
+    txMAX7219(0x0F,0x00);
 
     while (1)
     {
