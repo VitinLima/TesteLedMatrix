@@ -70,6 +70,7 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
 
     TRISBbits.TRISB1 = 0;
+    LATBbits.LATB1 = 1;
     IO_RA3_SetLow();
     IO_RA7_SetLow();
 

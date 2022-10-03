@@ -4337,9 +4337,9 @@ extern __bank0 __bit __timeout;
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 135 "mcc_generated_files/pin_manager.h"
+# 159 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 147 "mcc_generated_files/pin_manager.h"
+# 171 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
@@ -4532,11 +4532,44 @@ void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
 # 246 "mcc_generated_files/memory.h"
 uint8_t DATAEE_ReadByte(uint8_t bAdd);
 # 56 "mcc_generated_files/mcc.h" 2
-# 71 "mcc_generated_files/mcc.h"
+
+# 1 "mcc_generated_files/eusart.h" 1
+# 75 "mcc_generated_files/eusart.h"
+typedef union {
+    struct {
+        unsigned perr : 1;
+        unsigned ferr : 1;
+        unsigned oerr : 1;
+        unsigned reserved : 5;
+    };
+    uint8_t status;
+}eusart_status_t;
+# 110 "mcc_generated_files/eusart.h"
+void EUSART_Initialize(void);
+# 158 "mcc_generated_files/eusart.h"
+_Bool EUSART_is_tx_ready(void);
+# 206 "mcc_generated_files/eusart.h"
+_Bool EUSART_is_rx_ready(void);
+# 253 "mcc_generated_files/eusart.h"
+_Bool EUSART_is_tx_done(void);
+# 301 "mcc_generated_files/eusart.h"
+eusart_status_t EUSART_get_last_status(void);
+# 321 "mcc_generated_files/eusart.h"
+uint8_t EUSART_Read(void);
+# 341 "mcc_generated_files/eusart.h"
+void EUSART_Write(uint8_t txData);
+# 361 "mcc_generated_files/eusart.h"
+void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
+# 379 "mcc_generated_files/eusart.h"
+void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
+# 397 "mcc_generated_files/eusart.h"
+void EUSART_SetErrorHandler(void (* interruptHandler)(void));
+# 57 "mcc_generated_files/mcc.h" 2
+# 72 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 84 "mcc_generated_files/mcc.h"
+# 85 "mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 96 "mcc_generated_files/mcc.h"
+# 97 "mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
 # 47 "mcc_generated_files/mcc.c" 2
 
@@ -4549,6 +4582,7 @@ void SYSTEM_Initialize(void)
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
     WDT_Initialize();
+    EUSART_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)

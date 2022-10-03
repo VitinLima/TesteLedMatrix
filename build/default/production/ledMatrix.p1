@@ -388,11 +388,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SPI1_WriteByte (1 _addr0 ]
 "79
 [; ;ledMatrix.c: 79:     while(!PIR1bits.SSP1IF);
-[e $U 357  ]
-[e :U 358 ]
-[e :U 357 ]
-[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 358  ]
+[e $U 359  ]
+[e :U 360 ]
 [e :U 359 ]
+[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 360  ]
+[e :U 361 ]
 "80
 [; ;ledMatrix.c: 80:     PIR1bits.SSP1IF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
@@ -401,11 +401,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SPI1_WriteByte (1 _dat0 ]
 "82
 [; ;ledMatrix.c: 82:     while(!PIR1bits.SSP1IF);
-[e $U 360  ]
-[e :U 361 ]
-[e :U 360 ]
-[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 361  ]
+[e $U 362  ]
+[e :U 363 ]
 [e :U 362 ]
+[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 363  ]
+[e :U 364 ]
 "83
 [; ;ledMatrix.c: 83:     PIR1bits.SSP1IF = 0;
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
@@ -414,7 +414,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
 "85
 [; ;ledMatrix.c: 85: }
-[e :UE 356 ]
+[e :UE 358 ]
 }
 "87
 [; ;ledMatrix.c: 87: void initMAX7219(){
@@ -433,7 +433,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _txMAX7219 (2 , -> -> 15 `i `uc -> -> 0 `i `uc ]
 "109
 [; ;ledMatrix.c: 109: }
-[e :UE 363 ]
+[e :UE 365 ]
 }
 "111
 [; ;ledMatrix.c: 111: void setMatrix(uint8_t pos, uint8_t val){
@@ -452,9 +452,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 4 `i 365  ]
-[e $U 366  ]
-[e :U 365 ]
+[e $ < -> _i `i -> 4 `i 367  ]
+[e $U 368  ]
+[e :U 367 ]
 {
 "117
 [; ;ledMatrix.c: 117:   matrix[pos++]=DATAEE_ReadByte(eeAdd++);
@@ -463,12 +463,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ledMatrix.c: 118:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 365  ]
-[e :U 366 ]
+[e $ < -> _i `i -> 4 `i 367  ]
+[e :U 368 ]
 }
 "119
 [; ;ledMatrix.c: 119: }
-[e :UE 364 ]
+[e :UE 366 ]
 }
 "121
 [; ;ledMatrix.c: 121: void sendMatrix(){
@@ -481,9 +481,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 369  ]
-[e $U 370  ]
-[e :U 369 ]
+[e $ < -> _i `i -> 8 `i 371  ]
+[e $U 372  ]
+[e :U 371 ]
 {
 "124
 [; ;ledMatrix.c: 124:         txMAX7219(i+1,matrix[7-i]);
@@ -492,10 +492,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ledMatrix.c: 128:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 369  ]
-[e :U 370 ]
+[e $ < -> _i `i -> 8 `i 371  ]
+[e :U 372 ]
 }
 "129
 [; ;ledMatrix.c: 129: }
-[e :UE 368 ]
+[e :UE 370 ]
 }
