@@ -69,6 +69,8 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
 
     TRISBbits.TRISB1 = 0;
+    IO_RA3_SetLow();
+    IO_RA7_SetLow();
 
     while (1)
     {
