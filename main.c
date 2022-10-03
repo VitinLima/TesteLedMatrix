@@ -78,10 +78,9 @@ void main(void)
     while (1)
     {
         __delay_ms(1000);
-//        txMAX7219(0x0F,0x01); // Display-Test = 1
-        SPI1_ExchangeByte(0x0F)
+        txMAX7219(0x0F,0x01); // Display-Test = 1
         __delay_ms(1000);
-//        txMAX7219(0x0F,0x00); // Display-Test = 0
+        txMAX7219(0x0F,0x00); // Display-Test = 0
         if(EUSART_is_tx_ready()){
             EUSART_Write(0x00);
         }
