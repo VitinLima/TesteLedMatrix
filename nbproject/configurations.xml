@@ -186,6 +186,11 @@
         <property key="user-pack-device-support" value=""/>
         <property key="wpo-lto" value="false"/>
       </XC8-config-global>
+      <snap>
+        <property key="memories.programmemory.ranges" value="0-fff"/>
+        <property key="programmerToGoFilePath"
+                  value="D:/WS/MPLABX/TesteLedMatrix.X/debug/default/TesteLedMatrix_ptg"/>
+      </snap>
     </conf>
   </confs>
 </configurationDescriptor>
