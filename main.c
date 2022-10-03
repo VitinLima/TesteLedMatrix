@@ -44,6 +44,7 @@
 #include <proc/pic16f1827.h>
 
 #include "mcc_generated_files/mcc.h"
+#include "ledMatrix.h"
 
 /*
                          Main application
@@ -71,6 +72,10 @@ void main(void)
     TRISBbits.TRISB1 = 0;
     IO_RA3_SetLow();
     IO_RA7_SetLow();
+    
+    txMAX7219(0x0F,0x01); // Display-Test = 1
+    __delay_ms(1000);
+    txMAX7219(0x0F,0x00); // Display-Test = 0
 
     while (1)
     {
